@@ -1,0 +1,11 @@
+import java.util.*;
+
+class Solution {
+    public List<Integer> solution(int[] arr) {
+        List<Integer> answer = new ArrayList<Integer>();
+        for(int a : arr) {
+            for(int j=0;j<a;j++) answer.add(a);
+        }
+        return answer;
+    }
+}
