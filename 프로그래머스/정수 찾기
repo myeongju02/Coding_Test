@@ -1,0 +1,19 @@
+import java.util.stream.Collectors;
+import java.util.*;
+
+class Solution {
+    public int solution(int[] num_list, int n) {
+        List<Integer> num = Arrays.stream(num_list).boxed().collect(Collectors.toList());
+        return num.contains(n) ? 1 : 0;
+    }
+}
+
+## 정석으로 빠르게
+class Solution {
+    public int solution(int[] num_list, int n) {
+        for(int num : num_list) {
+            if(num==n) return 1;
+        }
+        return 0;
+    }
+}
