@@ -1,0 +1,25 @@
+class Solution {
+    public int solution(int[] num_list) {
+        int answer = 0;
+        String odd = "";
+        String even = "";
+        for(int n : num_list) {
+            if(n%2==0) even += Integer.toString(n);
+            else odd += Integer.toString(n);
+        }
+        return Integer.parseInt(even) + Integer.parseInt(odd);
+    }
+}
+
+## 형 변환 없이 * 10으로 빠르게
+class Solution {
+    public int solution(int[] num_list) {
+        int odd = 0;
+        int even = 0;
+        for(int n : num_list) {
+            if(n%2==0) even = even * 10 + n;
+            else odd = odd * 10 + n;
+        }
+        return even + odd;
+    }
+}
