@@ -1,0 +1,11 @@
+class Solution {
+    public int solution(int[][] arr) {
+        int answer = 0;
+        for(int x=0;x<arr.length;x++) {
+            for(int y=0;y<arr.length;y++) {
+                if(arr[x][y] != arr[y][x]) return 0;
+            }
+        }
+        return 1;
+    }
+}
