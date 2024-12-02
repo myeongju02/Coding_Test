@@ -1,0 +1,11 @@
+import java.util.*;
+
+class Solution {
+    public List<String> solution(String myString) {
+        String[] sp = myString.split("x");
+        List<String> answer = new ArrayList<String>(Arrays.asList(sp));
+        while(answer.contains("")) answer.remove("");
+        Collections.sort(answer);
+        return answer;
+    }
+}
