@@ -1,0 +1,22 @@
+class Solution {
+    public int solution(int a, int d, boolean[] included) {
+        int answer = 0;
+        int sum = a;
+        for(int i=0;i<included.length;i++) {
+            answer += included[i] ? sum : 0;
+            sum += d;
+        }
+        return answer;
+    }
+}
+
+## 곱으로
+class Solution {
+    public int solution(int a, int d, boolean[] included) {
+        int answer = 0;
+        for(int i=0;i<included.length;i++) {
+            answer += included[i] ? a + (i*d) : 0;
+        }
+        return answer;
+    }
+}
