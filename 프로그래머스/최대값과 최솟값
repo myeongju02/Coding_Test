@@ -1,0 +1,30 @@
+import java.util.*;
+
+class Solution {
+    public StringBuilder solution(String s) {
+        StringBuilder answer = new StringBuilder();
+        String[] sp = s.split(" ");
+        int[] list = Arrays.stream(sp).mapToInt(Integer::parseInt).toArray();
+        
+        answer.append(Arrays.stream(list).min().getAsInt()+" "+Arrays.stream(list).max().getAsInt());
+        return answer;
+    }
+}
+
+## 문자열 -> 정수 변환만 사용하여서 빠르게
+import java.util.*;
+
+class Solution {
+    public String solution(String s) {
+        String answer = "";
+        String[] sp = s.split(" ");
+        int[] trans_sp = new int[sp.length];
+        
+        for(int i=0;i<sp.length;i++) {
+            trans_sp[i] = Integer.parseInt(sp[i]);
+        }
+        
+        Arrays.sort(trans_sp);
+        return trans_sp[0]+" "+trans_sp[sp.length-1];
+    }
+}
