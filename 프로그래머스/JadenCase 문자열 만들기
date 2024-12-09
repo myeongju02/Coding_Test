@@ -1,0 +1,27 @@
+class Solution {
+    public StringBuilder solution(String s) {
+        StringBuilder answer = new StringBuilder();
+        answer.append(Character.toUpperCase(s.charAt(0)));
+        for(int i=1;i<s.length();i++) {
+            if(s.charAt(i-1)==(' ')) answer.append(Character.toUpperCase(s.charAt(i)));
+            else answer.append(Character.toLowerCase(s.charAt(i)));
+        }
+        return answer;
+    }
+}
+
+## bool 사용(시간은 더 걸림)
+class Solution {
+  public String solution(String s) {
+        String answer = "";
+        String[] sp = s.toLowerCase().split("");
+        boolean flag = true;
+
+        for(String ss : sp) {
+            answer += flag ? ss.toUpperCase() : ss;
+            flag = ss.equals(" ") ? true : false;
+        }
+
+        return answer;
+  }
+}
