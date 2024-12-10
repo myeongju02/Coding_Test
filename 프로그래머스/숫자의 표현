@@ -1,0 +1,19 @@
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        for(int i=1;i<=n;i++) {
+            if(chk(n,i)) answer++;
+        }
+        return answer;
+    }
+    
+    public boolean chk(int n, int i) {
+        int sum = 0;
+        for(int x=i;x<=n;x++) {
+            sum += x;
+            if(n==sum) return true;
+            else if(sum > n) return false;
+        }
+        return false;
+    }
+}
