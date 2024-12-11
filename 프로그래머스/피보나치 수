@@ -1,0 +1,25 @@
+## 재귀(시간 초과)
+class Solution {
+    public int solution(int n) {
+        return f(n);
+    }
+    
+     public int f(int n) {
+        if (n <= 1) return n;
+        else return f(n - 1) + f(n - 2);
+    }
+}
+
+## 문제 조건에 따라 1234567로 나눈 나머지로 구하기
+class Solution {
+    public int solution(int n) {
+        return f(0, 1, n, 2);
+    }
+    
+    public int f(int a, int b, int n, int cnt) {
+        int sum = a%1234567 + b%1234567;
+        if(cnt==n) return sum%1234567;
+        
+        return f(b, sum, n, cnt+1);
+    }
+}
