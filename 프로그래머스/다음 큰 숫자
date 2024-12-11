@@ -1,0 +1,30 @@
+## 효울성에서 시간 초과
+class Solution {
+    public int solution(int n) {
+        int answer = n;
+        String bi = Integer.toBinaryString(n);
+        long cnt_bi = bi.chars().filter(c -> c == '1').count();
+        
+        while(true) {
+            answer += 1;
+            String bi_next = Integer.toBinaryString(answer);
+            long cnt_next = bi_next.chars().filter(c -> c == '1').count();
+            if(cnt_next == cnt_bi) break;
+        }
+        return answer;
+    }
+}
+
+## bitCount로
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+        int count = Integer.bitCount(n);
+        while(true){
+            n++;
+            if(count == Integer.bitCount(n)){
+                return n;
+            }
+        }
+    }
+}
