@@ -1,0 +1,29 @@
+## 오름차순을 고려하여 통과 되지 않는 테스트 케이스 존재
+## [40, 50, 60, 80], 120, 2
+
+import java.util.*;
+
+class Solution {
+    public int solution(int[] people, int limit) {
+        int answer = 0, i = 0, sum = 0;
+        
+        Arrays.sort(people);
+        while(i < people.length) {
+            sum += people[i];
+            if(sum < limit) i++;
+            else if(sum == limit) {
+                answer++;
+                i++;
+                sum = 0;
+            }
+            else if(sum > limit) {
+                answer++;
+                sum = 0;
+            }
+        }
+        if(sum != 0) answer++;
+        return answer;
+    }
+}
+
+## 탐욕법
