@@ -1,0 +1,14 @@
+class Solution {
+    public long solution(int n) {
+        return f(n, 0, 1);
+    }
+    
+    public long f(int n, long a, long b) {
+        long sum = a + b;
+        
+        if(n <= 1) return sum%1234567;
+        else sum = f(n-1, b, sum%1234567);
+        
+        return sum%1234567;
+    }
+}
