@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Solution {
+    public int solution(String s) {
+        int answer = 0;
+        String S = new String(s);
+        Stack stack = new Stack();
+        
+        for(int j=0;j<s.length();j++) {
+            for(int i=0;i<s.length();i++) {
+                char c = S.charAt(i);
+                if(c=='(' || c=='[' || c=='{') stack.push(c);
+                else {
+                    if(stack.isEmpty()) stack.push(c);
+                    else if(c==')' && stack.peek().equals('(')) stack.pop();
+                    else if(c==']' && stack.peek().equals('[')) stack.pop();
+                    else if(c=='}' && stack.peek().equals('{')) stack.pop();
+                    else stack.push(c);
+                }
+            }
+            if(stack.isEmpty()) answer++;
+            stack.clear();
+            char tmp = S.charAt(0);
+            S = S.substring(1, s.length())+tmp;
+        }
+        
+        return answer;
+    }
+}
