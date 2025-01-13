@@ -1,0 +1,25 @@
+import java.util.*;
+
+class Solution {
+    public int solution(String dirs) {
+        int x = 0, y = 0, answer = 0;
+        boolean flag = false;
+        List<String> gone = new ArrayList<>();
+        gone.add("0 0");
+        
+        for(int i=0;i<dirs.length();i++) {
+            char direction = dirs.charAt(i);
+            if(direction == 'U' && y < 5) y++;
+            else if(direction == 'D' && y > -5) y--;
+            else if(direction == 'L' && x > -5) x--;
+            else if(direction == 'R' && x < 5) x++;    
+            
+            String go = gone.get(i)+" "+x+" "+y;
+            String rev_go = x+" "+y+" "+gone.get(i);
+            if((!gone.contains(go) && !gone.contains(rev_go)) && !gone.get(i).equals(x+" "+y)) gone.set(i, go);
+            gone.add(x+" "+y);
+            if(gone.get(i).length() > 5) answer++;    
+        }
+        return answer;
+    }
+}
